@@ -1,0 +1,5 @@
+Credentials cache: API:0919A543-56E9-4D75-8589-15FEEA14100C
+        Principal: gcusuman@42ROMA.IT
+
+  Issued                Expires               Principal
+Oct 20 16:06:39 2020  Oct 21 02:06:04 2020  krbtgt/42ROMA.IT@42ROMA.IT
