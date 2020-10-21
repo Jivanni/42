@@ -1,1 +1,1 @@
-find -E ./ -regex ".*/#.*#|.*/.*~" -type f -print0 -delete
+find -E ./ -regex ".*/#.*#|.*/.*~|.*/#" -type f -print0 -delete
