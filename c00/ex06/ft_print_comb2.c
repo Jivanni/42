@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcusuman <gcusuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/22 18:40:47 by gcusuman          #+#    #+#             */
-/*   Updated: 2020/10/22 20:46:00 by gcusuman         ###   ########.fr       */
+/*   Created: 2020/10/22 20:22:24 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/10/22 20:46:04 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_putchar_triplet(char a, char b, char c)
 	write(1, output, 5);
 }
 
-void	ft_print_comb(void)
+int	main(void)
 {
 	int i;
 	int j;
