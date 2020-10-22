@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gcusuman <gcusuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 19:07:24 by gcusuman          #+#    #+#             */
-/*   Updated: 2020/10/21 19:14:51 by gcusuman         ###   ########.fr       */
+/*   Updated: 2020/10/22 14:42:35 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_putchar(char c);
-
-int		main(void)
-{
-	return (0);
-}
 
 void	ft_putchar(char c)
 {

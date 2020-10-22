@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   nuovo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gcusuman <gcusuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 19:40:44 by gcusuman          #+#    #+#             */
-/*   Updated: 2020/10/21 19:40:50 by gcusuman         ###   ########.fr       */
+/*   Updated: 2020/10/22 15:21:36 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_print_alphabet(void);
-void    ft_putchar(char c);
-
-int     main(void)
+void	ft_print_alphabet(void)
 {
-    ft_print_alphabet();
-
-    return (0);
+	write(1, "abcdefghijklmnopqrstuvwxyz", 26);
 }
 
-void	ft_putchar(char c)
+int		main(void)
 {
-	write(1, &c, 1);
-}
-
-void    ft_print_alphabet(void)
-
-{
-    char i = 'a';
-    while (i <= 'z')
-    {
-        ft_putchar(i);
-        i++;
-    }
+	ft_print_alphabet();
 }
