@@ -1,1 +1,1 @@
-git rev-list HEAD | tail -n 5
+git log -n5 --format="%H"
