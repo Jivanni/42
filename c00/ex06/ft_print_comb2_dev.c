@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_print_comb2_dev.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcusuman <gcusuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 20:22:24 by gcusuman          #+#    #+#             */
-/*   Updated: 2020/10/23 11:22:47 by gcusuman         ###   ########.fr       */
+/*   Updated: 2020/10/23 11:18:48 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_putchars(int a, int b)
 	write(1, output, 8);
 }
 
-void	ft_print_comb2(void)
+
+int	main(void)
 {
 	int		i;
 	int		j;
@@ -42,6 +43,7 @@ void	ft_print_comb2(void)
 		j = i + 1;
 		while (j <= 99)
 		{
+
 			ft_putchars(i, j);
 			j++;
 		}
