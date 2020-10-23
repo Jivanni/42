@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcusuman <gcusuman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/23 12:00:04 by gcusuman          #+#    #+#             */
-/*   Updated: 2020/10/23 12:16:34 by gcusuman         ###   ########.fr       */
+/*   Created: 2020/10/23 12:27:36 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/10/23 12:27:38 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_combn(int n);
+void	ft_print_combn(int n)
 {
-
+	write(1, "test", 1);
 }
