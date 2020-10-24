@@ -10,18 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/* test
+#include <stdio.h>
 
-void	ft_putchar(char c);
+void	ft_ft(int *nbr);
 
-void    ft_ft(int *nbr)
+int main(void)
 {
-    
+	int i = 21;
+	int *pointer = &i;
+
+	ft_ft(pointer);
+
+	printf("%d\n", *pointer);
+}
+*/
+
+void	ft_ft(int *nbr)
+{
+	*nbr = 42;
 }
 
-
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
