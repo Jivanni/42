@@ -1,23 +1,19 @@
-/* test
-#include <stdio.h>
-void ft_swap(int *a, int *b);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/25 19:33:24 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/10/25 19:34:27 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		main(void)
-{
-int a = 3;
-int b = 5;
-int *ptra = &a;
-int *ptrb = &b;
-
-ft_swap(ptra, ptrb);
-
-printf("%d, %i\n", a,b);
-
-}
-*/
-void ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
 	int temp;
+
 	temp = *a;
 	*a = *b;
 	*b = temp;

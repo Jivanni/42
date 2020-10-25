@@ -1,26 +1,24 @@
-/*test
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/25 19:39:11 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/10/25 19:41:52 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strlen(char *str);
-
-int main()
+int		ft_strlen(char *str)
 {
-	char string[5] = {'a', 'b', 'c', 'd', '\0'};
-	char *prt = &string[0];
-	
-	printf("%d\n",ft_strlen(prt));
-}
-*/
-int ft_strlen(char *str)
-{	
-	int len = 0;
+	int len;
 
+	len = 0;
 	while (*str != '\0')
 	{
 		str++;
 		len++;
 	}
-	return(len);
-
+	return (len);
 }
