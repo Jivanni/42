@@ -6,7 +6,7 @@ char *ft_strcpy(char *dest, char *src);
 int main()
 {
 
-char string[12] = "helloworld!";
+char string[] = "helloworld!";
 
 char *src;
 char *dest;
