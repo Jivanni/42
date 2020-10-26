@@ -17,12 +17,9 @@ printf("%d\n",ft_str_is_alpha(ptr));
 
 int ft_str_is_alpha(char *str)
 {
-    while (*str++)
+    while (*str++ && !((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z')))
     {
-        if (!((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z')) && *str )
-        {
-            return (0); 
-        }
+        return (0); 
     }
     return(1);
 }

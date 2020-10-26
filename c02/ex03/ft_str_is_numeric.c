@@ -18,12 +18,10 @@ printf("%d\n",ft_str_is_numeric(ptr));
 
 int ft_str_is_numeric(char *str)
 {
-    while (*str++)
+    while (*str++ && !(*str >= '0' && *str <= '9'))
     {
-        if (!(*str >= '0' && *str <= '9') && *str)
-        {
-            return (0); 
-        }
+        return (0); 
     }
+
     return(1);
 }
