@@ -1,4 +1,4 @@
-
+/*
 #include <stdio.h>
 
 char *ft_strncpy(char *dest, char *src, unsigned int n);
@@ -7,21 +7,22 @@ int main()
 {
 
 char string[7] = "abcdef";
-char dest[10];
+char dest[15];
 
-printf("%s\n",ft_strncpy(dest, string, 9));
+printf("%s\n",ft_strncpy(dest, string, 10));
 
 } 
- 
+ */
 char *ft_strncpy(char *dest, char *src, unsigned int n)
 {
     int i = 0;
-    while (i < n)
+    while (i++ < n && (*dest++ = *src++))
     {
-        while((*dest++ = *src++)){}
-        
+    while (i < n && !*src)
+    {
+        *dest++ = '\0';
         i++;
-        
     }
-    return dest;
+    }
+    return dest - n;
 }
