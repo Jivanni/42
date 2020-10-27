@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 char *ft_strcapitalize(char *str);
-char *ft_strupcase(char *str);
-char *ft_strlowcase(char *str);
+char *ft_charupcase(char *str);
+char *ft_charlowcase(char *str);
 int char_isalphan (char *str);
 
 int main()
@@ -24,43 +24,30 @@ char *ft_strcapitalize(char *str)
     {   
         if (i == 0 || char_isalphan(&str[i-1]) )
         {
-            str[i] = *ft_strupcase(&str[i]);
+            str[i] = *ft_charupcase(&str[i]);
         }
-        else str[i] = *ft_strlowcase(&str[i]);
+        else str[i] = *ft_charlowcase(&str[i]);
 
         i++;
     }   
     return str;
 }
 
-
-char *ft_strupcase(char *str)
+char    *ft_charupcase(char *str)
 {
-    int i;
-    i = 0;
-    while (str[i])
-    {   
-        if (str[i] >= 'a' && str[i] <= 'z')
+    if (*str >= 'a' && *str <= 'z')
         {
-        str[i] -= 32; 
+        *str -= 32; 
         }
-        i++;
-    }   
     return str;
 }
 
-char    *ft_strlowcase(char *str)
+char    *ft_charlowcase(char *str)
 {
-    int i;
-    i = 0;
-    while (str[i])
-    {   
-        if (str[i] >= 'A' && str[i] <= 'Z')
+    if (*str >= 'A' && *str <= 'Z')
         {
-        str[i] += 32; 
+        *str += 32; 
         }
-        i++;
-    }   
     return str;
 }
 
