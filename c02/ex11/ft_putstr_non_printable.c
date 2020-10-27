@@ -1,17 +1,3 @@
-
-#include <unistd.h>
-
-void ft_putstr_non_printable(char *str);
-char *ascii_to_hex(char *buf);
-
-int main()
-{
-
-char string[21] = "Coucou\ntu vas\tbien ?";
-ft_putstr_non_printable(string);
-
-}
-
 void ft_putstr_non_printable(char *str)
  {
      while (*str)

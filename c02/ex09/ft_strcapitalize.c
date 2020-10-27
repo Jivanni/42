@@ -1,21 +1,3 @@
-#include <stdio.h>
-
-char *ft_strcapitalize(char *str);
-char *ft_charupcase(char *str);
-char *ft_charlowcase(char *str);
-int char_isalphan (char *str);
-
-int main()
-{
-
-char string[62] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-char *ptr = string;
-
-
-printf("%s\n",ft_strcapitalize(ptr));
-
-} 
-
 char *ft_strcapitalize(char *str)
 {
     int i;
