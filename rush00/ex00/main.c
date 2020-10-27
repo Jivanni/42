@@ -6,12 +6,15 @@
 /*   By: lmarzanot <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 09:54:46 by lmarzanot         #+#    #+#             */
-/*   Updated: 2020/10/24 17:51:32 by gcusuman         ###   ########.fr       */
+/*   Updated: 2020/10/25 14:35:03 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void	ft_putchar(char c);
+void	rush(int x, int y);
+
 int		main(void)
 {
-	rush(9, 7);
+	rush(5, 1);
 	return (0);
 }

@@ -6,11 +6,9 @@
 /*   By: lmarzanot <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 15:34:11 by lmarzanot         #+#    #+#             */
-/*   Updated: 2020/10/24 17:50:07 by gcusuman         ###   ########.fr       */
+/*   Updated: 2020/10/25 14:35:56 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	print_line(int x, char l_corner, char body, char r_corner);
 
@@ -19,13 +17,13 @@ void	rush(int x, int y)
 	char	chars[4];
 	int		i;
 
-	if (!(x < 0 || y < 0))
+	i = 0;
+	chars[0] = 'C';
+	chars[1] = 'B';
+	chars[2] = 'A';
+	chars[3] = ' ';
+	if (!(x <= 0 || y <= 0))
 	{
-		i = 0;
-		chars[0] = 'C';
-		chars[1] = 'B';
-		chars[2] = 'A';
-		chars[3] = ' ';
 		print_line(x, chars[0], chars[1], chars[2]);
 		while (i < y - 2)
 		{
@@ -38,7 +36,7 @@ void	rush(int x, int y)
 		}
 	}
 	else
-		write(1, "!Error!\nPlease enter a valid positive int\n", 42);
+		write(1, "!Error!\nPlease enter an int > 0\n", 33);
 }
 
 void	print_line(int x, char l_corner, char body, char r_corner)
