@@ -1,26 +1,39 @@
-void ft_putstr_non_printable(char *str)
- {
-     while (*str)
-     {
-        if (*str >= 32 && *str <= 127)
-        {
-             write(1, str, 1);
-        }
-        else 
-            {
-                write(1, ascii_to_hex(str), 3);
-            }
-        str++;
-     }
- }
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/27 19:39:43 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/10/27 19:53:23 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ascii_to_hex(char *buf)
+void	ft_putstr_non_printable(char *str)
 {
-    char value[3];
-    char hex[17] = "0123456789abcdef";
-    value[0] = '\\';
-    value[1] = hex[*buf / 16];
-    value[2] = hex[*buf % 16];
-    char *tab = value; 
-    return tab; 
+	while (*str)
+	{
+		if (*str >= 32 && *str <= 127)
+		{
+			write(1, str, 1);
+		}
+		else
+		{
+			write(1, ascii_to_hex(str), 3);
+		}
+		str++;
+	}
+}
+
+char	*ascii_to_hex(char *buf)
+{
+	char value[3];
+	char *tab;
+
+	value[0] = '\\';
+	value[1] = "0123456789abcdef"[*buf / 16];
+	value[2] = "0123456789abcdef"[*buf % 16];
+	tab = value;
+	return (tab);
 }
