@@ -5,7 +5,7 @@ char *ft_strupcase(char *str);
 int main()
 {
 
-char string[5] = "AAAA";
+char string[] = "dasda";
 char *ptr = string;
 
 
@@ -20,9 +20,9 @@ char *ft_strupcase(char *str)
     while (str[i])
     {   
         if (str[i] >= 'a' && str[i] <= 'z')
-        {
-        str[i] -= 32; 
-        }
+            {
+                str[i] -= 32; 
+            }
         i++;
     }   
     return str;

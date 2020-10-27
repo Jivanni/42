@@ -1,4 +1,4 @@
-/*
+
 #include <stdio.h>
 
 char *ft_strncpy(char *dest, char *src, unsigned int n);
@@ -6,23 +6,26 @@ char *ft_strncpy(char *dest, char *src, unsigned int n);
 int main()
 {
 
-char string[7] = "abcdef";
+char string[] = "";
 char dest[15];
 
 printf("%s\n",ft_strncpy(dest, string, 10));
 
 } 
- */
+
 char *ft_strncpy(char *dest, char *src, unsigned int n)
 {
     int i = 0;
-    while (i++ < n && (*dest++ = *src++))
+
+    while (i < n && src[i])
     {
-    while (i < n && !*src)
-    {
-        *dest++ = '\0';
+        dest[i] = src[i];
         i++;
     }
+    while (i < n)
+    {
+        dest[i] = '\0';
+        i++;
     }
-    return dest - n;
+    return dest;
 }
