@@ -7,23 +7,24 @@ char *ascii_to_hex(char *buf);
 int main()
 {
 
-char string[7] = "abcdef";
+char string[21] = "Coucou\ntu vas\tbien ?";
 ft_putstr_non_printable(string);
 
 }
 
 void ft_putstr_non_printable(char *str)
  {
-     while (*str++)
+     while (*str)
      {
-        if (!(*str >= 32 && *str <= 127))
+        if (*str >= 32 && *str <= 127)
         {
-            write(1, ascii_to_hex(str), 3);
+             write(1, str, 1);
         }
         else 
             {
-                write(1, str, 1);
+                write(1, ascii_to_hex(str), 3);
             }
+        str++;
      }
  }
 
