@@ -12,37 +12,27 @@
 
 #include <unistd.h>
 
-char	*ascii_to_hex(char *buf)
+void	ft_putchar(char c)
 {
-	char value[3];
-	char *tab;
-
-	value[0] = '\\';
-	value[1] = "0123456789abcdef"[*buf / 16];
-	value[2] = "0123456789abcdef"[*buf % 16];
-	tab = value;
-	return (tab);
+	write(1, &c, 1);
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	while (*str)
+	int i;
+	i = 0;
+	while (str[i])
 	{
-		if (*str >= 32 && *str <= 127)
+		if (str[i] >= 32 && str[i] <= 127)
 		{
-			write(1, str, 1);
+			ft_putchar(str[i]);
 		}
 		else
 		{
-			write(1, ascii_to_hex(str), 3);
+			ft_putchar('\\');
+			ft_putchar("0123456789abcdef"[str[i] / 16]);
+			ft_putchar("0123456789abcdef"[str[i] % 16]);
 		}
-		str++;
+		i++;
 	}
-}
-
-int main(void) {
-  char str[] = "\afs\nfdsfdsf fsadf ";
-
-  ft_putstr_non_printable(str);
-  return 0;
 }
