@@ -25,9 +25,7 @@ void	ft_putstr_non_printable(char *str)
 	while (str[i])
 	{
 		if (str[i] >= 32 && str[i] <= 127)
-		{
 			ft_putchar(str[i]);
-		}
 		else
 		{
 			ft_putchar('\\');
