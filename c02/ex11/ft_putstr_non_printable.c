@@ -39,3 +39,10 @@ void	ft_putstr_non_printable(char *str)
 		str++;
 	}
 }
+
+int main(void) {
+  char str[] = "\afs\nfdsfdsf fsadf ";
+
+  ft_putstr_non_printable(str);
+  return 0;
+}
