@@ -24,7 +24,7 @@ char	*ft_charlowcase(char *str)
 	return (str);
 }
 
-int		char_isalphan(char *str)
+int		char_notalphan(char *str)
 {
 	return (!((*str >= 'A' && *str <= 'Z') \
 	|| (*str >= 'a' && *str <= 'z') || (*str >= '0' && *str <= '9')));
@@ -37,7 +37,7 @@ char	*ft_strcapitalize(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (i == 0 || char_isalphan(&str[i - 1]))
+		if (i == 0 || char_notalphan(&str[i - 1]))
 			str[i] = *ft_charupcase(&str[i]);
 		else
 			str[i] = *ft_charlowcase(&str[i]);

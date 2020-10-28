@@ -10,6 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
+char	*ascii_to_hex(char *buf)
+{
+	char value[3];
+	char *tab;
+
+	value[0] = '\\';
+	value[1] = "0123456789abcdef"[*buf / 16];
+	value[2] = "0123456789abcdef"[*buf % 16];
+	tab = value;
+	return (tab);
+}
+
 void	ft_putstr_non_printable(char *str)
 {
 	while (*str)
@@ -24,16 +38,4 @@ void	ft_putstr_non_printable(char *str)
 		}
 		str++;
 	}
-}
-
-char	*ascii_to_hex(char *buf)
-{
-	char value[3];
-	char *tab;
-
-	value[0] = '\\';
-	value[1] = "0123456789abcdef"[*buf / 16];
-	value[2] = "0123456789abcdef"[*buf % 16];
-	tab = value;
-	return (tab);
 }
