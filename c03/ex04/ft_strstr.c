@@ -1,43 +1,36 @@
-char	*ft_strstr(char *str, char *to_find)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/29 14:49:23 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/10/29 14:49:27 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+
+int		compare(char *str, char *to_find)
 {
-	unsigned int i;
-	i = 0;
-
-	while(to_find[i])
+	while (*str && *to_find)
 	{
-		while(*str = *to_find || !*to_find)
-		{
-			if (!*to_find)
-			{
-
-			}
-
-		}
-		if (*str = *to_find)
-		{
-			char *ptr;
-			ptr = str;
-			return (ptr);
-		}
+		if (*str != *to_find)
+			return (0);
 		str++;
 		to_find++;
 	}
-	return (str);
+	return (!*to_find);
 }
 
-
-
-#include <string.h>
-#include <stdio.h>
-#include <string.h>
-
-
-int		main()
+char	*ft_strstr(char *str, char *to_find)
 {
-	char haystack[] = "Foo Bar Baz";
-	char needle[] = "Bar";
-
-	printf("%s\n", ft_strncat(haystack, needle));
-	//printf("%s\n", strncat(str3, str4, 2));
-
+	while (*str)
+	{
+		if ((*str == *to_find) && compare(str, to_find))
+			return (str);
+		str++;
+	}
+	return (NULL);
 }
