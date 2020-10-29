@@ -16,7 +16,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		k++;
 	}
 	dest[i] = '\0';
-	return (i + k);
+	return (i);
 }
 
 #include <string.h>
@@ -26,13 +26,15 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 
 int		main()
 {
-	int buff = 0;
-	char str1[7] = "sadads";
-	char str2[5] = "sadd";
-	char str3[7] = "sadads";
-	char str4[5] = "sadd";
+	int buff = 2;
+	char str1[] = "sadads";
+	char str2[] = "sadd";
+	char str3[] = "sadads";
+	char str4[] = "sadd";
 
-	printf("%d\n", ft_strlcat(str1, str2, buff));
-	printf("%ld\n", strlcat(str3, str4, buff));
+	printf("ft %d - %s\n", ft_strlcat(str1, str2, buff), str1);
+	printf("bi %ld - %s\n", strlcat(str3, str4, buff), str3);
+
+
 
 }
