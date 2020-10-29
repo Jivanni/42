@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-int		compare(char *str, char *to_find)
+int		match(char *str, char *to_find)
 {
 	while (*str && *to_find)
 	{
@@ -28,7 +28,7 @@ char	*ft_strstr(char *str, char *to_find)
 {
 	while (*str)
 	{
-		if ((*str == *to_find) && compare(str, to_find))
+		if ((*str == *to_find) && match(str, to_find))
 			return (str);
 		str++;
 	}
