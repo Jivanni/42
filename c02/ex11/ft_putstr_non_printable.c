@@ -6,7 +6,7 @@
 /*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 19:39:43 by gcusuman          #+#    #+#             */
-/*   Updated: 2020/10/27 19:53:23 by gcusuman         ###   ########.fr       */
+/*   Updated: 2020/10/29 11:25:41 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	ft_putchar(char c)
 
 void	ft_putstr_non_printable(char *str)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] == '\0')
 	{
 		if (str[i] >= 32 && str[i] <= 127)
 			ft_putchar(str[i]);
