@@ -29,12 +29,10 @@ int		ft_atoi(char *str)
 	numlen = 0;
 	while (*str)
 	{
-		if ((*str >= 9 && *str <= 13) || *str == 32)
-			sign *= +1;
+		if ((*str >= 9 && *str <= 13) || *str == 32 || *str == '+')
+			sign *= 1;
 		else if (*str == '-')
 			sign *= -1;
-		else if (*str == '+')
-			sign *= +1;
 		else if (*str >= '0' && *str <= '9')
 			numlen++;
 		else
@@ -47,14 +45,15 @@ int		ft_atoi(char *str)
 }
 
 /*
+#include <stdlib.h>
 #include <stdio.h>
 
 int main()
 {
 	char test[] = "  --+-13464a";
-	char test2[] = "  --+-13464a";
+	char test2[] = "-13464";
 
 	printf("%d\n", ft_atoi(test));
-	printf("%d", ft_atoi(test2));
+	printf("%d\n", atoi(test2));
 }
 */
