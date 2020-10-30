@@ -1,68 +1,65 @@
-int		ft_isspace(char *str)
-{
-	return(*str == '\t' || *str == '\n' || *str == '\v' || *str == '\f' || *str == '\r' || *str == ' ');
-}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 12:16:50 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/10/30 12:16:52 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		ft_char_isnum(char *str)
-{
-	return (*str >= '0' && *str <= '9');
-}
+int	g_sign = 1;
+unsigned int g_num = 0;
+unsigned int g_numlen = 0;
 
 int		strtoi(char *c, unsigned int l)
 {
-    if (l)
-	{
-		return (c[l-1] - '0' + 10 * strtoi(c, l - 1));
-	}
+	if (l)
+		return (c[l - 1] - '0' + 10 * strtoi(c, l - 1));
 	else
 		return (0);
 }
 
 int		ft_atoi(char *str)
 {
-	int sign;
-	unsigned int num;
-	int numlen;
-
-	num = 0;
-	sign = 1;
-	numlen = 0;
-	while(*str && ft_isspace(str))
+	g_sign = 1;
+	g_num = 0;
+	g_numlen = 0;
+	while (*str)
 	{
-		str++;
-	}
-	while(*str == '-' || *str == '+' )
-	{
-		switch (*str)
+		if (*str == '\t' || *str == '\n' || *str == '\v'
+			|| *str == '\f' || *str == '\r' || *str == ' ')
 		{
-		case '-':
-			sign *= -1;
-			break;
-		case '+':
-			sign *= +1;
-			break;
-		default:
-			break;
+			str++;
+			continue;
 		}
+		else if (*str == '-')
+			g_sign *= -1;
+		else if (*str == '+')
+			g_sign *= +1;
+		else if (*str >= '0' && *str <= '9')
+			g_numlen++;
+		else
+			break ;
 		str++;
 	}
-	while(ft_char_isnum(str))
-	{
-		numlen++;
-		str++;
-	}
-	str -= numlen;
-	num = strtoi(str, numlen);
-
-	return (sign * num);
+	str -= g_numlen;
+	g_num = strtoi(str, g_numlen);
+	return (g_sign * g_num);
 }
+
+/*
 #include <stdio.h>
 
 int main()
 {
-	char test[] = "  --134ab567";
+	char test[] = "  --+-13464a";
+	char test2[] = "  --+-13464a";
 
-	printf("%d", ft_atoi(test));
+	printf("%d\n", ft_atoi(test));
+	printf("%d", ft_atoi(test2));
 }
-
+*/
 
