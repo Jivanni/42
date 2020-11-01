@@ -112,5 +112,6 @@ int		solve_game(int **clues)
 		print_string("Error\n");
 	i = 0;
 	free(table);
+	free(clues);
 	return (1);
 }

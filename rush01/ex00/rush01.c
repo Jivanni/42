@@ -84,12 +84,14 @@ int		main(int argc, char **argv)
 	if (argc != 2 || !check_input(argv[1]))
 	{
 		print_string("Error\n");
+		free(clues);
 		return (0);
 	}
 	parse_input(clues, argv[1]);
 	if (!check_validity(clues))
 	{
 		print_string("Error\n");
+		free(clues);
 		return (0);
 	}
 	solve_game(clues);
