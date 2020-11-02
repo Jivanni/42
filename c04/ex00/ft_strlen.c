@@ -1,20 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/02 18:27:55 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/11/02 18:27:58 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int		ft_strlen(char *str)
 {
 	int unsigned len;
 
 	len = 0;
-	while(*str)
-	{
+	while (*str++)
 		len++;
-		str++;
-	}
-	return(len);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char test[] = "123";
-	printf("%d", ft_strlen(test));
+	return (len);
 }
