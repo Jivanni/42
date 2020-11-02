@@ -1,45 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/02 15:34:30 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/11/02 15:34:37 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int i;
-	unsigned int k;
+	char			*dst;
+	char			*start;
+	unsigned int	len;
+	unsigned int	left;
 
-	i = 0;
-	k = 0;
-	while(dest[i])
+	dst = dest;
+	start = src;
+	left = size;
+	while (left-- != 0 && *dst)
+		dst++;
+	len = dst - dest;
+	left = size - len;
+	if (left == 0)
+		return (len + sizeof(src));
+	while (*src)
 	{
-		i++;
+		if (left > 1)
+		{
+			*dst++ = *src;
+			left--;
+		}
+		src++;
 	}
-	// i is at \0
-	const long int dest_len = i;
-	if (((long)(size) - dest_len - 1) < 0)
-		return(0);
-
-	while(src[k] && k <= (size - dest_len - 1))
-	{
-		dest[i] = src[k];
-		i++;
-		k++;
-	}
-	dest[i] = '\0';
-	return (i);
-}
-
-#include <string.h>
-#include <stdio.h>
-#include <string.h>
-
-
-int		main()
-{
-	int buff = 11;
-	char dest1[] = "12345";
-	char src1[] = "678";
-	char dest2[] = "12345";
-	char src2[] = "678";
-
-	printf("ft %d - %s\n", ft_strlcat(dest1, src1, buff), dest1);
-	printf("bi %ld - %s\n", strlcat(dest2, src2, buff), dest2);
-
-
-
+	*dst = '\0';
+	return (len + (src - start));
 }
