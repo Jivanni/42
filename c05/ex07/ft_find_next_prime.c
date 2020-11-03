@@ -11,10 +11,19 @@ int		ft_is_prime(int nb)
 	return (nb > 1);
 }
 
+int		ft_find_next_prime(int nb)
+{
+	while(1)
+		if(ft_is_prime(nb))
+			return (nb);
+		else
+			nb++;
+}
+
 
 #include <stdio.h>
 
 int main()
 {
-	printf("%d\n", ft_is_prime(0));
+	printf("%d\n", ft_find_next_prime(24));
 }
