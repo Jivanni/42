@@ -1,5 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/03 15:56:10 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/11/03 15:56:12 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
 int		ft_recursive_power(int nb, int power)
 {
 	if (power < 0)
@@ -8,8 +18,4 @@ int		ft_recursive_power(int nb, int power)
 		return (1);
 	else
 		return (nb * ft_recursive_power(nb, power - 1));
-}
-int main()
-{
-	printf("%d", ft_recursive_power(3, 2));
 }
