@@ -3,6 +3,9 @@ int ft_iterative_factorial(int nb)
 {
 	int res = 1;
 	int i = 2;
+
+	if (nb < 0)
+		return (0);
 	while(i <= nb)
 	{
 		res *= i++;
@@ -11,5 +14,5 @@ int ft_iterative_factorial(int nb)
 }
 int main()
 {
-	printf("%d", ft_iterative_factorial(6));
+	printf("%d", ft_iterative_factorial(3));
 }

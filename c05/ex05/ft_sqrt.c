@@ -1,8 +1,15 @@
-int		ft_sqrt(int nb)
+int	ft_sqrt(int nb)
 {
-	if (nb <= 1)
-			return (nb);
-	return (ft_sqrt(nb - 1) * ft_sqrt(nb - 1));
+	unsigned int i;
+	unsigned int temp;
+
+	i = 0;
+	temp = (unsigned int)nb;
+	while ((i * i) < temp)
+		i++;
+	if ((i * i) == temp)
+		return (i);
+	return (0);
 }
 
 
@@ -10,5 +17,5 @@ int		ft_sqrt(int nb)
 
 int main()
 {
-	printf("%d\n", ft_sqrt(9));
+	printf("%d\n", ft_sqrt(2));
 }
