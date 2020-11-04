@@ -1,14 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/04 10:32:23 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/11/04 10:32:25 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int main(int argc, char *argv[])
+int		main(int argc, char *argv[])
 {
 	char *ptr;
 
-	(void)argc;
-	ptr = argv[0];
-	while(*ptr)
+	if (argc > 0)
+	{
+		ptr = argv[0];
+		while (*ptr)
 		{
-			write(1,ptr++,1);
+			write(1, ptr++, 1);
 		}
-	write(1,"\n",1);
+	}
+	write(1, "\n", 1);
 }
