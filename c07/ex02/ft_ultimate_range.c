@@ -2,33 +2,36 @@
 
 int		ft_ultimate_range(int **range, int min, int max)
 {
-	int *out;
 	size_t i;
 	size_t size;
+	int *arr;
 
 	i = 0;
 	if (min >= max)
 	{
-		return(NULL);
+		*arr = 0;
+		return(0);
 	}
 	size = max - min;
-	out = (int *) malloc(sizeof(int) * size);
-	if (out != NULL)
+	arr = (int *) malloc(sizeof(int) * size);
+	if (arr == NULL)
 	{
-		while(i < size)
+		*range = 0;
+		return(-1);
+	}
+	*range = arr;
+	while(i < size)
 		{
-			out[i] = min;
+			arr[i] = min;
 			i++;
 			min++;
 		}
-	}
-	return(out);
+	return(size);
 }
 
 #include <stdio.h>
 int main()
 {
-
-	printf("%d", ft_range(2, 5)[0]);
-
+	int **range;
+	ft_ultimate_range(range, 2, 5);
 }
