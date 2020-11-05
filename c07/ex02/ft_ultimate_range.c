@@ -3,19 +3,15 @@
 int *ft_range(int min, int max)
 {
 	int *out;
-	size_t i;
-	size_t size;
+	int i;
+	int size;
 
 	i = 0;
 	size = max - min;
 	if ((out = (int *) malloc(sizeof(int) * size)))
 	{
 		while(i < size)
-		{
-			out[i] = min;
-			i++;
-			min++;
-		}
+			out[i++] = min++;
 	}
 	return(out);
 }
@@ -30,15 +26,15 @@ int		ft_ultimate_range(int **range, int min, int max)
 			return(0);
 		}
 	size = max - min;
-	if((!(*range = ft_range(min, max))))
+	if(!(*range = ft_range(min, max)))
 		return(-1);
 	return size;
-
 }
 
 #include <stdio.h>
 int main()
 {
-	int **range;
-	int i = ft_ultimate_range(range, 2, 5);
+	int *range;
+	int i = ft_ultimate_range(&range, 2, 5);
+	printf("%d", i);
 }

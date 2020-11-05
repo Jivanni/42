@@ -30,37 +30,44 @@ int		ft_strlen(char *str)
 char *ft_strjoin(int size, char **strs, char *sep)
 {
 	char *out;
-	size_t len;
+	int len;
 	int i;
 
 	len = 0;
 	i = 0;
+	if(size == 0)
+	{
+		if(!(out = (char*) malloc(sizeof(char))))
+			return (NULL);
+		return(out);
+	}
 	while(i < size)
 	{
 		len += ft_strlen(strs[i]);
 		i++;
 	}
 	len += ft_strlen(sep) * (size - 1);
-	out = (char*) malloc(sizeof(char) * len + sizeof(char));
+	if(!(out = (char*) malloc(sizeof(char) * (len + 1))))
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{
 		ft_strcat(out, strs[i]);
-		ft_strcat(out, sep);
+		if(i < size - 1)
+		    ft_strcat(out, sep);
 		i++;
 	}
-	out[size] = '\0';
-	return(out);
+	out[len] = '\0';
+	return (out);
 }
 
 #include <stdio.h>
 int main()
 {
-	char **strs;
-	char str1[] = {'h','e','l','\0'};
-	char str2[] = {'l','o','u','\0'};
-	strs[0] = str1;
-	strs[1] = str2;
-	char *sep = ",";
-	printf("%s", ft_strjoin(2, strs, sep));
+	char **strs = NULL;
+	strs[0] = "hello";
+	strs[1] = "asdad";
+	strs[2] = "y434";
+	char *sep = ", ";
+	printf("%s", ft_strjoin(3, strs, sep));
 }
