@@ -41,7 +41,7 @@ char *ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	len += ft_strlen(sep) * (size - 1);
-	out = (char*) malloc(sizeof(char) * len + 1);
+	out = (char*) malloc(sizeof(char) * len + sizeof(char));
 	i = 0;
 	while (i < size)
 	{
@@ -56,7 +56,11 @@ char *ft_strjoin(int size, char **strs, char *sep)
 #include <stdio.h>
 int main()
 {
-	char strs[2][10] = {"hello", "hi"};
+	char **strs;
+	char str1[] = {'h','e','l','\0'};
+	char str2[] = {'l','o','u','\0'};
+	strs[0] = str1;
+	strs[1] = str2;
 	char *sep = ",";
 	printf("%s", ft_strjoin(2, strs, sep));
 }
