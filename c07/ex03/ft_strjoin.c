@@ -36,10 +36,14 @@ int		ft_strlen(char *str)
 	return (len);
 }
 
-char	*allocate(int size, char *ptr)
+char	*allocate(int len, int size)
 {
-	if (!(ptr = (char*)malloc(sizeof(char) * size)))
+	char *ptr;
+
+	if (!(ptr = (char*)malloc(sizeof(char) * len)))
 		return (NULL);
+	if (size == 0)
+		*ptr = 0;
 	return (ptr);
 }
 
@@ -52,11 +56,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	len = 0;
 	i = 0;
 	if (size == 0)
-		return (allocate(1, out));
+		return (allocate(1, size));
 	while (i < size)
 		len += ft_strlen(strs[i++]);
 	len += ft_strlen(sep) * (size - 1);
-	if (!(out = allocate(len + 1, out)))
+	if (!(out = allocate(len + 1, size)))
 		return (NULL);
 	i = 0;
 	while (i < size)
