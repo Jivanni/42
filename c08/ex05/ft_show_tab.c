@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 12:25:03 by gcusuman          #+#    #+#             */
-/*   Updated: 2020/11/06 12:25:05 by gcusuman         ###   ########.fr       */
+/*   Created: 2020/11/06 20:50:31 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/11/06 20:50:33 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_boolean.h"
+#include "ft_stock_str.h"
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
 	while (*str)
-		write(1, str++, 1);
+	{
+		write(1, str, 1);
+		str++;
+	}
+	write(1, "\n", 1);
 }
 
-t_bool	ft_is_even(int nbr)
+void	ft_put_number(int number)
 {
-	return ((EVEN(nbr)) ? TRUE : FALSE);
+	if (number > 9)
+		ft_put_number(number / 10);
+	write(1, &"0123456789"[number % 10], 1);
 }
 
-int		main(int argc, char **argv)
+void	ft_show_tab(struct s_stock_str *par)
 {
-	(void)argv;
-	if (ft_is_even(argc - 1) == TRUE)
-		ft_putstr(EVEN_MSG);
-	else
-		ft_putstr(ODD_MSG);
-	return (SUCCESS);
+	while (par->str)
+	{
+		ft_putstr(par->str);
+		ft_put_number(par->size);
+		write(1, "\n", 1);
+		ft_putstr(par->copy);
+		par++;
+	}
 }
