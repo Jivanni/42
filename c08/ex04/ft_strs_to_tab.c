@@ -13,7 +13,7 @@
 #include "ft_stock_str.h"
 #include <stdlib.h>
 
-int		ft_strlen(char *str)
+int					ft_strlen(char *str)
 {
 	int len;
 
@@ -23,7 +23,7 @@ int		ft_strlen(char *str)
 	return (len);
 }
 
-char	*ft_strdup(char *src)
+char				*ft_strdup(char *src)
 {
 	char	*out;
 	int		len;
