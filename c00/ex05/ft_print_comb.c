@@ -11,44 +11,47 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdbool.h>
 
-void	ft_putchar_triplet(char a, char b, char c)
+void	ft_putchar(char c)
 {
-	char output[5];
+	write(1, &c, 1);
+}
 
-	output[0] = a + '0';
-	output[1] = b + '0';
-	output[2] = c + '0';
-	output[3] = ',';
-	output[4] = ' ';
-	if (a == 7 && b == 8 && c == 9)
+void	ft_write_comb(char a, char b, char c, bool last)
+{
+	ft_putchar(a);
+	ft_putchar(b);
+	ft_putchar(c);
+	if (last)
 	{
-		output[3] = '\0';
-		output[4] = '\0';
+		ft_putchar(',');
+		ft_putchar(' ');
 	}
-	write(1, output, 5);
 }
 
 void	ft_print_comb(void)
 {
-	int i;
-	int j;
-	int k;
+	char a;
+	char b;
+	char c;
+	bool last;
 
-	i = 0;
-	while (i <= 9)
+	a = '0';
+	while (a <= '7')
 	{
-		j = i + 1;
-		while (j <= 9)
+		b = a + 1;
+		while (b <= '8')
 		{
-			k = j + 1;
-			while (k <= 9)
+			c = b + 1;
+			while (c <= '9')
 			{
-				ft_putchar_triplet(i, j, k);
-				k++;
+				last = !(a == '7' && b == '8' && c == '9');
+				ft_write_comb(a, b, c, last);
+				c++;
 			}
-			j++;
+			b++;
 		}
-		i++;
+		a++;
 	}
 }

@@ -11,40 +11,43 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdbool.h>
 
-void	ft_putchars(int a, int b)
+void	ft_putchar(char c)
 {
-	char output[8];
+	write(1, &c, 1);
+}
 
-	output[0] = (char)(48 + a / 10);
-	output[1] = (char)(48 + a % 10);
-	output[2] = ' ';
-	output[4] = (char)(48 + b / 10);
-	output[5] = (char)(48 + b % 10);
-	output[6] = ',';
-	output[7] = ' ';
-	if (a == 98 && b == 99)
+void	ft_write_comb(int a, int b, bool last)
+{
+	ft_putchar(48 + a / 10);
+	ft_putchar(48 + a % 10);
+	ft_putchar(' ');
+	ft_putchar(48 + b / 10);
+	ft_putchar(48 + b % 10);
+	if (last)
 	{
-		output[6] = '\0';
-		output[7] = '\0';
+		ft_putchar(',');
+		ft_putchar(' ');
 	}
-	write(1, output, 8);
 }
 
 void	ft_print_comb2(void)
 {
-	int		i;
-	int		j;
+	int		a;
+	int		b;
+	bool	last;
 
-	i = 0;
-	while (i <= 99)
+	a = 0;
+	while (a <= 99)
 	{
-		j = i + 1;
-		while (j <= 99)
+		b = a + 1;
+		while (b <= 99)
 		{
-			ft_putchars(i, j);
-			j++;
+			last = !(a == 98 && b == 99);
+			ft_write_comb(a, b, last);
+			b++;
 		}
-		i++;
+		a++;
 	}
 }
