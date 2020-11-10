@@ -3,7 +3,7 @@ OBJS	= ${SRCS:.c=.o}
 INCS	= includes
 NAME	= libft.a
 LIBC	= ar rc
-LIB	= ranlib
+LIB		= ranlib
 CC		= gcc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror

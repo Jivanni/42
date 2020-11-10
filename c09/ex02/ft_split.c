@@ -10,67 +10,100 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-
-int		ft_strlen(char *str)
+bool	is_sub(char c, char *set)
 {
-	int len;
-
-	len = 0;
-	while (*str)
+	while (true)
 	{
-		len++;
-		str++;
+		if (*set == '\0')
+			return (c == '\0');
+		if (*set == c)
+			return (true);
+		set++;
 	}
-	return (len);
+	return (false);
 }
 
-int		num_string(char *str, char *sep)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int i;
-	int sep_len;
-	int count;
+	unsigned int index;
+
+	index = 0;
+	while (index < n && src[index] != '\0')
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	while (index < n)
+	{
+		dest[index] = '\0';
+		index++;
+	}
+	return (dest);
+}
+
+int		count_occur(char *str, char *charset)
+{
+	int		count;
+	char	*previous;
+	char	*next;
 
 	count = 0;
-	i = 0;
-	sep_len = ft_strlen(sep);
-	while(*str)
+	previous = str;
+	next = str;
+	while (true)
 	{
-		while (*str == sep[i] && i < sep_len)
-			{
-				str++;
-				i++;
-			}
-		if (i == sep_len)
+		if (is_sub(*str, charset))
+			next = str;
+		if (next - previous > 1)
 			count++;
-		i = 0;
 		if (!(*str))
-			break;
+			break ;
+		previous = next;
 		str++;
 	}
-	return count;
+	return (count);
 }
 
-char	**fill_arr(char *str, char *sep, char **out, int substrn)
+int		add_part(char **entry, char *previous, int size, char *charset)
 {
-
+	if (is_sub(previous[0], charset))
+	{
+		previous++;
+		size--;
+	}
+	*entry = (char *)malloc((size + 3) * sizeof(char));
+	ft_strncpy(*entry, previous, size);
+	(*entry)[size] = '\0';
+	(*entry)[size + 1] = '\0';
+	return (1);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	int substrn;
-	substrn = num_string(str, charset);
-	char **out;
-	out = (char **) malloc(sizeof(char*) * substrn + 1);
-	out[substrn] = (char *) 0;
-	return (out);
-}
+	int		index;
+	int		size;
+	char	*previous;
+	char	*next;
+	char	**array;
 
-int main()
-{
-	char *a= "ciaoasdd";
-	char *sep = ", ";
-	printf("%d", num_string(a, sep));
+	array = (char **)malloc((count_occur(str, charset) + 1) * sizeof(char *));
+	index = 0;
+	previous = str;
+	next = str;
+	while (true)
+	{
+		if (is_sub(*str, charset))
+			next = str;
+		if ((size = next - previous) > 1)
+			index += add_part(&array[index], previous, size, charset);
+		if (!(*str))
+			break ;
+		previous = next;
+		str++;
+	}
+	array[index] = 0;
+	return (array);
 }
