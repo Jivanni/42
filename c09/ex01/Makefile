@@ -1,19 +1,28 @@
+SRCS	= srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c srcs/ft_swap.c
+OBJS	= ${SRCS:.c=.o}
+INCS	= includes
 NAME	= libft.a
-SRC		= srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
-OBJS	= ${SRC:.c=.o}
-DEPS	= includes/ft.h
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c
+LIBC	= ar rc
+LIB	= ranlib
+CC		= gcc
+RM		= rm -f
+CFLAGS	= -Wall -Wextra -Werror
 
-$(NAME): all
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I${INCS}
 
-all:
-		$(CC) $(CFLAGS) $(SRC) , ar rc $(NAME) $(O)
+${NAME}: ${OBJS}
+	${LIBC} ${NAME} ${OBJS}
+	${LIB} ${NAME}
+
+all: ${NAME}
 
 clean:
-		rm -f $(O)
+	${RM} ${OBJS}
 
-fclean:
-		clean ; rm -f $(NAME)
+fclean: clean
+	${RM} ${NAME}
 
-re: fclean ; make all
+re: fclean all
+
+.PHONY: all clean fclean re .c.o
