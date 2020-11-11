@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-bool	is_sub(char c, char *set)
+bool	in_string(char c, char *set)
 {
 	while (true)
 	{
@@ -55,11 +55,11 @@ int		count_occur(char *str, char *charset)
 	next = str;
 	while (true)
 	{
-		if (is_sub(*str, charset))
+		if (in_string(*str, charset))
 			next = str;
 		if (next - previous > 1)
 			count++;
-		if (!(*str))
+		if (*str == '\0')
 			break ;
 		previous = next;
 		str++;
@@ -69,7 +69,7 @@ int		count_occur(char *str, char *charset)
 
 int		add_part(char **entry, char *previous, int size, char *charset)
 {
-	if (is_sub(previous[0], charset))
+	if (in_string(previous[0], charset))
 	{
 		previous++;
 		size--;
@@ -95,11 +95,11 @@ char	**ft_split(char *str, char *charset)
 	next = str;
 	while (true)
 	{
-		if (is_sub(*str, charset))
+		if (in_string(*str, charset))
 			next = str;
 		if ((size = next - previous) > 1)
 			index += add_part(&array[index], previous, size, charset);
-		if (!(*str))
+		if (*str == '\0')
 			break ;
 		previous = next;
 		str++;
