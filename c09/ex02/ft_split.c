@@ -5,105 +5,120 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/10 12:30:19 by gcusuman          #+#    #+#             */
-/*   Updated: 2020/11/10 12:30:20 by gcusuman         ###   ########.fr       */
+/*   Created: 2020/11/11 14:11:30 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/11/11 14:11:32 by gcusuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdbool.h>
 
-bool	in_string(char c, char *set)
+int		check_char(char *s, char c)
 {
-	while (true)
-	{
-		if (*set == '\0')
-			return (c == '\0');
-		if (*set == c)
-			return (true);
-		set++;
-	}
-	return (false);
+	int i;
+
+	i = 0;
+	while (s[i])
+		if (c == s[i++])
+			return (0);
+	return (1);
 }
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int		count_occ(char *str, char *charset)
 {
-	unsigned int index;
+	int i;
+	int start;
+	int count;
 
-	index = 0;
-	while (index < n && src[index] != '\0')
-	{
-		dest[index] = src[index];
-		index++;
-	}
-	while (index < n)
-	{
-		dest[index] = '\0';
-		index++;
-	}
-	return (dest);
-}
-
-int		count_occur(char *str, char *charset)
-{
-	int		count;
-	char	*previous;
-	char	*next;
-
+	i = 0;
 	count = 0;
-	previous = str;
-	next = str;
-	while (true)
+	start = 0;
+	while (str[i])
 	{
-		if (in_string(*str, charset))
-			next = str;
-		if (next - previous > 1)
-			count++;
-		if (*str == '\0')
-			break ;
-		previous = next;
-		str++;
+		if (check_char(charset, str[i]))
+		{
+			if (start == 0)
+			{
+				count++;
+				start++;
+			}
+		}
+		else if (!check_char(charset, str[i]) && start != 0)
+			start = 0;
+		i++;
 	}
 	return (count);
 }
 
-int		add_part(char **entry, char *previous, int size, char *charset)
+void	finder(char *str, char *charset, int *indexarr, int *lenghtarr)
 {
-	if (in_string(previous[0], charset))
+	int k;
+	int start;
+	int i;
+
+	k = 0;
+	i = 0;
+	while (str[i])
 	{
-		previous++;
-		size--;
+		if (check_char(charset, str[i]) && start == 0)
+		{
+			indexarr[k] = i;
+			lenghtarr[k] += 1;
+			start = 1;
+		}
+		else if (check_char(charset, str[i]) && start != 0)
+			lenghtarr[k] += 1;
+		else if (!check_char(charset, str[i]) && start != 0)
+		{
+			start = 0;
+			k++;
+		}
+		i++;
 	}
-	*entry = (char *)malloc((size + 3) * sizeof(char));
-	ft_strncpy(*entry, previous, size);
-	(*entry)[size] = '\0';
-	(*entry)[size + 1] = '\0';
-	return (1);
+}
+
+char	**allocate(char *str, int *lenghtarr, int *indexarr, int lenght)
+{
+	int		i;
+	int		k;
+	char	**newarr;
+	int		n;
+
+	newarr = (char**)malloc(sizeof(char*) * lenght + 1);
+	i = 0;
+	while (i < lenght)
+	{
+		k = 0;
+		newarr[i] = (char*)malloc((sizeof(char) * lenghtarr[i]) + 1);
+		while (k < lenghtarr[i])
+		{
+			n = indexarr[i] + k;
+			newarr[i][k] = str[n];
+			k++;
+		}
+		newarr[i][k] = '\0';
+		i++;
+	}
+	newarr[i] = 0;
+	return (newarr);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	int		index;
-	int		size;
-	char	*previous;
-	char	*next;
-	char	**array;
+	int *indexarr;
+	int *lenghtarr;
+	int lenght;
+	int i;
 
-	array = (char **)malloc((count_occur(str, charset) + 1) * sizeof(char *));
-	index = 0;
-	previous = str;
-	next = str;
-	while (true)
+	i = 0;
+	lenght = count_occ(str, charset);
+	indexarr = malloc(sizeof(int*) * lenght);
+	lenghtarr = malloc(sizeof(int*) * lenght);
+	while (i < lenght)
 	{
-		if (in_string(*str, charset))
-			next = str;
-		if ((size = next - previous) > 1)
-			index += add_part(&array[index], previous, size, charset);
-		if (*str == '\0')
-			break ;
-		previous = next;
-		str++;
+		indexarr[i] = 0;
+		lenghtarr[i++] = 0;
 	}
-	array[index] = 0;
-	return (array);
+	i = 0;
+	finder(str, charset, indexarr, lenghtarr);
+	return (allocate(str, lenghtarr, indexarr, lenght));
 }
