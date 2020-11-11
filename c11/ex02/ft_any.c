@@ -1,20 +1,17 @@
-#include <stdlib.h>
 
-int		*ft_map(int *tab, int length, int(*f)(int))
+int		ft_any(char **tab, int(*f)(char*))
 {
 	int i;
-	int *out;
-
-	out = malloc(sizeof(int) * length);
-	i= 0;
-	while(i < length)
+	i = 0;
+	while(*tab)
 	{
-		out[i] = (*f)(tab[i]);
+		if((*f)(tab[i]))
+			return (1);
+		tab++;
 		i++;
 	}
-	return out;
+	return (0);
 }
-
 
 
 #include <unistd.h>
