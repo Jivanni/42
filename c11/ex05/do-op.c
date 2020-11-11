@@ -14,17 +14,30 @@ void	ft_putstr(char *str)
 	}
 }
 
-int		strtoi(char *c)
+int		ft_atoi(char *str)
 {
-	if (*c)
-		return (c++ - '0' + 10 * strtoi(c));
-	else
-		return (0);
-}
+	long buff;
+	int sign = 1;
 
+	buff = 0;
+
+	while (*str)
+	{
+		if ((*str >= 9 && *str <= 13) || *str == 32 || *str == '+')
+			sign *= 1;
+		else if (*str == '-')
+			sign *= -1;
+		else if (*str >= '0' && *str <= '9')
+			buff = buff * 10 + *str - '0';
+		else
+			break ;
+		str++;
+	}
+	return(sign * (int) buff);
+}
 int (*ptr[5]) (int x, int y);
 
-int calculate(int a, int b, char op)
+int calculate(int a, char op, int b)
 {
 	ptr[0] = &sum;
 	ptr[1] = &sub;
@@ -35,14 +48,29 @@ int calculate(int a, int b, char op)
 		return ptr[0](a,b);
 	else if (op == '-')
 		return ptr[1](a,b);
+	else if (op == '*')
+		return ptr[2](a,b);
+	else if (op == '/')
+		return ptr[3](a,b);
+	else if (op == '%')
+		return ptr[4](a,b);
+	return(0);
 }
 
 #include <stdio.h>
 
 int main(int argc, char **argv)
 {
+	int a;
+	int b;
+	char op;
+
+	printf("argc = %d", argc);
 	if (argc != 4)
 		return (0);
-	printf("&d", calculate(argv[A], argv[OP], argv[B]));
+	op = argv[2][0];
+	a = ft_atoi(argv[1]);
+	b = ft_atoi(argv[3]);
 
+	printf("%d", calculate(a, op, b));
 }
