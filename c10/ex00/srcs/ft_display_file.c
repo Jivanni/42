@@ -30,9 +30,9 @@ int put_file(char *path)
 int main(int argc, char **argv)
 {
 	if (argc == 1)
-		ft_putstr("File name missing.");
+		ft_putstr("File name missing.\n");
 	else if (argc > 2)
-		ft_putstr("Too many arguments.");
+		ft_putstr("Too many arguments.\n");
 	else if (!(put_file(argv[1])))
-		ft_putstr("Cannot read file.");
+		ft_putstr("Cannot read file.\n");
 }
