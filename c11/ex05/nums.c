@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   nums.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/12 11:14:51 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/11/12 11:14:52 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "nums.h"
 
 void	ft_putstr(char *str)
@@ -11,11 +23,11 @@ void	ft_putstr(char *str)
 
 int		ft_atoi(char *str)
 {
-	long buff;
-	int sign = 1;
+	long	buff;
+	int		sign;
 
+	sign = 1;
 	buff = 0;
-
 	while (*str)
 	{
 		if ((*str >= 9 && *str <= 13) || *str == 32 || *str == '+')
@@ -28,9 +40,8 @@ int		ft_atoi(char *str)
 			break ;
 		str++;
 	}
-	return(sign * (int) buff);
+	return (sign * (int)buff);
 }
-
 
 void	ft_putnbr(int nb)
 {
@@ -57,7 +68,7 @@ void	ft_putnbr(int nb)
 	}
 }
 
-int	ft_validate_input(int b, char operator)
+int		ft_validate_input(int b, char operator)
 {
 	if (operator == '/' && b == 0)
 	{
