@@ -12,11 +12,11 @@
 
 int		ft_atoi(char *str)
 {
-	long buff;
-	int sign = 1;
+	long	buff;
+	int		sign;
 
+	sign = 1;
 	buff = 0;
-
 	while (*str)
 	{
 		if ((*str >= 9 && *str <= 13) || *str == 32 || *str == '+')
@@ -29,5 +29,5 @@ int		ft_atoi(char *str)
 			break ;
 		str++;
 	}
-	return(sign * (int) buff);
+	return (sign * (int)buff);
 }
