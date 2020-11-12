@@ -1,10 +1,22 @@
-void ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcusuman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/12 11:49:09 by gcusuman          #+#    #+#             */
+/*   Updated: 2020/11/12 11:49:11 by gcusuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
 	char	*temp;
 	int		i;
 	int		flag;
 
-	while(1)
+	while (1)
 	{
 		i = 0;
 		flag = 0;
@@ -20,7 +32,6 @@ void ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
 			i++;
 		}
 		if (!flag)
-			break;
+			break ;
 	}
 }
-
