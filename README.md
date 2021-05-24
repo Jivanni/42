@@ -1,6 +1,6 @@
 # 42 Roma Luiss
 
-![42 Logo](files/resources/42-logo.png)
+![42 Logo](resources/42-logo.png)
 
 ## Table of Content
 
@@ -28,7 +28,7 @@ the skills they contain, like:
 
 Just run the following command:
 
-`git clone --recursive https://github.com/jraleman/42_Silicon-Valley.git`
+`git clone --recursive https://github.com/Jivanni/42_Roma_Piscine.git`
 
 This will clone the repository, plus all the submodules,
 the projects, the piscines, and the exams.
@@ -39,4 +39,4 @@ the projects, the piscines, and the exams.
 Attribution 3.0 license, and the underlying source code used to format and
 display that content is licensed under the MIT license.*
 
-Copyright (c) 2016 Jose Ramon Aleman
+Copyright (c) 2020 Giovanni Cusumano
