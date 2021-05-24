@@ -4,25 +4,22 @@
 
 ## Table of Content
 
-* [Projects](projects/)
+* [Projects](group_projects/)
 * [Exams](exams_material/)
 * [Course Reference](reference/)
 
 ## Overview
 
-Repository containing my work done during the 2020 October Piscine at 42 Roma, that follows a logical sequence of
-17 long-lasting skills that speak to businesses. These skills also have the same
-fundamental element: personal adaptability, learning, coping and solving new
-challenges that they will inevitably face regularly. Even if it has a few
-obligatory paths, 42’s program is individually tailored throughout their
-educational experience. Many classical themes are addressed in order to develop
-the skills they contain, like:
+Repository containing my work done during the 2020 October Piscine at 42 Roma Luiss.
+The October 2020 Piscine were the first piscine ever for the Italian 42 branch.
+At 42 Rome Luiss, there are not traditional classes, and students are given several projects 
+to work on in accordance with the principles of videogames. 
+Students are encouraged to challenge your mindset and ideas, ask questions, rethink the way you think about business with your peers.
+At the C Piscine, students develop skills such as:
 
-* Computer Science / Programming
-* Innovation
-* Infrastructures
-* Personal Development and Expression
-* Entrepreneurship
+* C Programming
+* Shell Scripting
+* Teamwork
 
 ## Download
 
@@ -31,7 +28,7 @@ Just run the following command:
 `git clone --recursive https://github.com/Jivanni/42_Roma_Piscine.git`
 
 This will clone the repository, plus all the submodules,
-the projects, the piscines, and the exams.
+the projects, and the exams.
 
 ## License
 
